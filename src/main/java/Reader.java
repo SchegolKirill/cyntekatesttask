@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Reader {
-    String path;
-    String line = "";
-    List<String> lines1 = new ArrayList<>();
-    List<String> lines2 = new ArrayList<>();
+    private String path;
+    private String line;
+    private List<String> lines1 = new ArrayList<>();
+    private List<String> lines2 = new ArrayList<>();
 
     public Reader(String path) {
         this.path = path;
@@ -18,7 +18,7 @@ public class Reader {
     public void readFile() {
         try (BufferedReader br = new BufferedReader(new FileReader(path))){
             while ((line = br.readLine()) != null) {
-                if(isDigit(line)){
+                if(Utils.isDigit(line)){
                     lines1 = lines2;
                     lines2 = new ArrayList<>();
                     continue;
@@ -38,12 +38,5 @@ public class Reader {
         return lines2;
     }
 
-    private static boolean isDigit(String s){
-        try {
-            Integer.parseInt(s);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
+
 }

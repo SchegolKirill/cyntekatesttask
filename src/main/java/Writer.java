@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Map;
 
 public class Writer {
-    String path;
+    private String path;
 
     public Writer(String path) {
         this.path = path;

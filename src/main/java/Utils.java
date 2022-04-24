@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class Utils {
-    Map<String, String> map = new LinkedHashMap<>();
-    List<String> values = new ArrayList<>();
-    Reader reader;
+    private Map<String, String> map = new LinkedHashMap<>();
+    private List<String> values = new ArrayList<>();
+    private Reader reader;
 
     public Utils(Reader reader) {
         this.reader = reader;
@@ -11,6 +11,10 @@ public class Utils {
 
     public Map<String, String> getMap() {
         return map;
+    }
+
+    public List<String> getValues() {
+        return values;
     }
 
     public void sortValues() {
@@ -44,6 +48,15 @@ public class Utils {
                     }
                 }
             }
+        }
+    }
+
+    public static boolean isDigit(String s){
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 }
